@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Search Report — {{ now.strftime('%b %d, %Y') }}</title>
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      --card-bg: #1e293b;
+      --card-border: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-urgent: #ef4444;
+      --accent-strong: #f59e0b;
+      --accent-good: #3b82f6;
+      --accent-score: #10b981;
+      --brand-primary: #6366f1;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      margin: 0;
+      padding: 24px 16px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .header {
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+      padding: 32px 24px;
+      border-radius: 16px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
+      text-align: center;
+    }
+    .header h1 {
+      margin: 0 0 8px 0;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+    }
+    .header p {
+      margin: 0;
+      color: #e0e7ff;
+      font-size: 15px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .stat-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+    .stat-val {
+      font-size: 24px;
+      font-weight: 700;
+      color: #f8fafc;
+      display: block;
+    }
+    .stat-lbl {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #94a3b8;
+    }
+    .urgent-banner {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      border-left: 4px solid #ef4444;
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+    }
+    .urgent-banner h3 {
+      margin: 0 0 6px 0;
+      color: #f87171;
+      font-size: 16px;
+    }
+    .job-card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 20px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .job-card.tier-exceptional {
+      border-left: 5px solid #10b981;
+    }
+    .job-card.tier-strong {
+      border-left: 5px solid #f59e0b;
+    }
+    .job-card.tier-good {
+      border-left: 5px solid #3b82f6;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .job-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 4px 0;
+      color: #f8fafc;
+    }
+    .company-meta {
+      font-size: 14px;
+      color: #94a3b8;
+    }
+    .score-badge {
+      background: #0f172a;
+      border: 1px solid #334155;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 15px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .meta-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0;
+    }
+    .pill {
+      background: #0f172a;
+      border: 1px solid #334155;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      color: #cbd5e1;
+    }
+    .priority-pill-urgent {
+      background: rgba(239, 68, 68, 0.2);
+      border-color: #ef4444;
+      color: #fca5a5;
+    }
+    .priority-pill-today {
+      background: rgba(245, 158, 11, 0.2);
+      border-color: #f59e0b;
+      color: #fcd34d;
+    }
+    .priority-pill-consider {
+      background: rgba(59, 130, 246, 0.2);
+      border-color: #3b82f6;
+      color: #93c5fd;
+    }
+    .section-box {
+      background: #0f172a;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-top: 12px;
+      font-size: 13px;
+    }
+    .section-title {
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .bullet-list {
+      margin: 0;
+      padding-left: 20px;
+      color: #cbd5e1;
+    }
+    .bullet-list li {
+      margin-bottom: 4px;
+    }
+    .apply-btn {
+      display: inline-block;
+      margin-top: 18px;
+      background: #6366f1;
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      text-align: center;
+    }
+    .apply-btn:hover {
+      background: #4f46e5;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #334155;
+      color: #64748b;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🎯 AI Job Search Matches</h1>
+      <p>{{ run.started_at.strftime('%A, %B %d, %Y • %H:%M UTC') if run.started_at else '' }} — Priority Job Report</p>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-val">{{ run.jobs_discovered }}</span>
+        <span class="stat-lbl">Discovered</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-val">{{ run.jobs_fresh }}</span>
+        <span class="stat-lbl">&lt;24h Fresh</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-val" style="color: #10b981;">{{ matches|length }}</span>
+        <span class="stat-lbl">Matches (≥70%)</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-val" style="color: #ef4444;">{{ urgent_count }}</span>
+        <span class="stat-lbl">Apply Now</span>
+      </div>
+    </div>
+
+    {% if urgent_matches %}
+    <div class="urgent-banner">
+      <h3>⚡ Urgent Action Needed (Posted &lt;6 hrs ago, Score ≥90%)</h3>
+      <ul style="margin: 0; padding-left: 20px; font-size: 14px; color: #fecaca;">
+        {% for m in urgent_matches %}
+        <li><strong>{{ m.job.title }}</strong> at {{ m.job.company }} ({{ m.total_score }}% Match) — {{ m.job|format_age }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    {% if not matches %}
+    <div class="job-card" style="text-align: center; padding: 40px 20px;">
+      <h3 style="margin-bottom: 8px;">No New High-Confidence Matches Found</h3>
+      <p style="color: #94a3b8; margin: 0;">All fresh jobs have been reviewed or didn't meet the strict 70% threshold. We'll monitor on the next scheduled run.</p>
+    </div>
+    {% endif %}
+
+    {% for match in matches %}
+    {% set job = match.job %}
+    <div class="job-card {% if match.total_score >= 90 %}tier-exceptional{% elif match.total_score >= 80 %}tier-strong{% else %}tier-good{% endif %}">
+      <div class="card-header">
+        <div>
+          <h2 class="job-title">{{ job.title }}</h2>
+          <div class="company-meta">
+            🏢 <strong>{{ job.company }}</strong> &nbsp;•&nbsp; 📍 {{ job.location }} &nbsp;•&nbsp; 🕒 {{ job|format_age }}
+          </div>
+        </div>
+        <div class="score-badge" style="color: {% if match.total_score >= 90 %}#10b981{% elif match.total_score >= 80 %}#f59e0b{% else %}#3b82f6{% endif %};">
+          {{ match.tier_emoji }} {{ match.total_score }}% Match
+        </div>
+      </div>
+
+      <div class="meta-pills">
+        <span class="pill">Source: {{ job.source }}</span>
+        <span class="pill">Mode: {{ job.work_mode.value }}</span>
+        {% if job.salary %}
+        <span class="pill" style="color: #34d399;">💰 {{ job.salary }}</span>
+        {% endif %}
+        <span class="pill {% if match.priority_label == 'Apply Immediately' %}priority-pill-urgent{% elif match.priority_label == 'Apply Today' %}priority-pill-today{% else %}priority-pill-consider{% endif %}">
+          {{ match.priority_emoji }} {{ match.priority_label }}
+        </span>
+      </div>
+
+      {% if match.match_reasons %}
+      <div class="section-box">
+        <div class="section-title">✅ Match Highlights</div>
+        <ul class="bullet-list">
+          {% for r in match.match_reasons %}
+          <li>{{ r }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      {% if match.gaps %}
+      <div class="section-box" style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.2);">
+        <div class="section-title" style="color: #fbbf24;">⚠️ Skill & Requirement Gaps</div>
+        <ul class="bullet-list" style="color: #fde68a;">
+          {% for g in match.gaps %}
+          <li>{{ g }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      {% if job.application_url %}
+      <div>
+        <a href="{{ job.application_url }}" target="_blank" rel="noopener noreferrer" class="apply-btn">
+          🚀 Apply on {{ job.source }} &rarr;
+        </a>
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+
+    {% if top_gaps %}
+    <div class="job-card" style="margin-top: 32px;">
+      <h3 style="margin-top: 0; color: #cbd5e1;">📚 Top In-Demand Skill Gaps Across Postings</h3>
+      <p style="color: #94a3b8; font-size: 13px; margin-bottom: 12px;">Frequently mentioned in matching positions that were not explicitly detected on your resume/profile:</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        {% for skill, count in top_gaps %}
+        <span class="pill" style="background: #334155; color: #e2e8f0; font-weight: 500;">
+          {{ skill }} <span style="color: #94a3b8; font-size: 11px;">({{ count }}x)</span>
+        </span>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="footer">
+      Generated automatically by your AI Job Search Agent • Immediate Joiner Optimized
+    </div>
+  </div>
+</body>
+</html>

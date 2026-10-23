@@ -1,0 +1,45 @@
+# ============================================================
+# AI Job Search Agent — Settings
+# ============================================================
+
+# --- Search Behavior ---
+freshness_hours: 10          # Only include jobs this many hours old or newer (48h captures weekends & fresh openings)
+min_match_score: 70          # Minimum score (0-100) to include in results
+schedule_interval_hours: 4   # How often the agent runs
+max_results_per_source: 100  # Max jobs to fetch per source adapter
+
+# --- Source Toggles ---
+# Enable/disable individual job sources
+sources:
+  jobspy: true       # LinkedIn, Indeed, Glassdoor, Google Jobs (via scraping)
+  remotive: true     # Remote jobs — free API, no key needed
+  remoteok: true     # Remote jobs — free API, no key needed
+  himalayas: true    # Remote/global — free API, no key needed
+  arbeitnow: true    # EU/UK focus — free API, no key needed
+  adzuna: false      # Requires free API key from developer.adzuna.com
+
+# --- Adzuna API (optional) ---
+# Sign up free at https://developer.adzuna.com/
+adzuna:
+  enabled: false
+  app_id: ""
+  app_key: ""
+
+# --- Email Notification (optional) ---
+# Configure SMTP to receive job reports via email.
+# For Gmail: use an App Password (not your regular password).
+# Server: smtp.gmail.com, Port: 587
+smtp:
+  server: ""
+  port: 587
+  username: ""
+  password: ""
+  from_address: ""
+  to_address: ""
+  use_tls: true
+
+# --- Output ---
+save_html_reports: true
+reports_dir: ""    # Leave blank for default (./reports/)
+data_dir: ""       # Leave blank for default (./data/)
+resume_path: ""    # Leave blank for default (./resume/)

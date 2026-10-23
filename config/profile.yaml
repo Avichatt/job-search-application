@@ -1,0 +1,133 @@
+# ============================================================
+# AI Job Search Agent — Candidate Profile
+# ============================================================
+# Fill in your details below. The agent uses this to search
+# for relevant jobs and score them against your background.
+# ============================================================
+
+candidate:
+  # --- Basic Info ---
+  name: "Avik Chatterjee"
+  email: "chatterjeeavik999@gmail.com"
+  linkedin: "linkedin.com/in/avik-chatterjee-00a364145"
+  total_experience_years: 5
+  current_role: "Data & Risk Analyst"
+
+  # --- Target Roles (what you're looking for) ---
+  target_roles:
+    - "Data Analyst"
+    - "Senior Data Analyst"
+    - "Data & Risk Analyst"
+    - "Risk Analyst"
+    - "Fraud Analyst"
+    - "Product Data Analyst"
+    - "Business Intelligence Analyst"
+    - "BI Analyst"
+    - "Analytics Engineer"
+
+  # --- Skills ---
+  primary_skills:
+    - SQL
+    - Python
+    - Power BI
+    - Tableau
+    - Excel
+    - Alteryx
+    - DAX
+    - Power Query
+    - Pandas
+    - NumPy
+    - A/B Testing
+    - Statistical Analysis
+    - Data Visualization
+    - KPI Reporting
+    - Reporting Automation
+    - Api Integration
+
+  secondary_skills:
+    - AWS
+    - Redshift
+    - Azure
+    - QuickSight
+    - ETL
+    - ELT
+    - Data Pipelines
+    - Data Quality
+    - Anomaly Detection
+    - Root Cause Analysis
+    - Fraud Analytics
+    - Risk Analytics
+    - Customer Analytics
+    - Churn Analysis
+    - Funnel Analysis
+    - Behavioral Analysis
+    - Hypothesis Testing
+    - Regression Analysis
+    - Clustering
+    - Time Series Analysis
+    - Logistic Regression
+    - Random Forest
+    - XGBoost
+    - Machine Learning
+    - Git
+    - Jira
+    - Confluence
+    - Agile
+    - Stakeholder Management
+
+  # --- Industries you've worked in ---
+  industries:
+    - E-commerce
+    - Marketplace
+    - Technology
+    - Risk & Fraud Analytics
+    - Financial Services
+    - Cloud Computing
+
+  # --- Location Preferences ---
+  preferred_countries:
+    - India
+
+  preferred_cities:
+    - Bengaluru
+    - Bangalore
+    - Hyderabad
+    - Pune
+    - Kolkata
+    - Mumbai
+    - Gurgaon
+    - Gurugram
+    - Noida
+    - Delhi NCR
+    - Chennai
+    - Remote
+
+  work_preference: "any"  # remote / hybrid / onsite / any
+  employment_type: "any"  # full-time / contract / any
+
+  # --- Optional ---
+  min_salary: ""  # e.g., "₹20,00,000" or leave blank
+  visa_status: "Authorized to work in India"
+  education:
+    - "Post Graduate Degree, AI-ML & Agentic AI Engineering — Indian Institute of Technology, Gandhinagar (IITGN)"
+    - "B.Tech, Mechanical Engineering — Neotia Institute of Technology, Management and Science (ITME)"
+  certifications:
+    - "Google Data Analytics Professional Certificate (2024)"
+    - "Alteryx Core Designer Certification (2025)"
+  languages:
+    - English
+    - Hindi
+
+  # --- Search Title Variations (optional) ---
+  search_title_variations:
+    - "Data Analyst"
+    - "Senior Data Analyst"
+    - "Data & Risk Analyst"
+    - "Risk Analyst"
+    - "Fraud Analyst"
+    - "Product Data Analyst"
+    - "BI Analyst"
+    - "Business Intelligence Analyst"
+    - "Analytics Specialist"
+    - "Analytics Engineer"
+

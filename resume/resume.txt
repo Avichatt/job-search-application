@@ -1,0 +1,50 @@
+AVIK CHATTERJEE
+DATA ANALYST | SQL | PYTHON | POWER BI | TABLEAU | EXCEL | ALTERYX
+chatterjeeavik999@gmail.com | +91 8820372373 | linkedin.com/in/avik-chatterjee-00a364145 | Bengaluru, India
+
+PROFESSIONAL SUMMARY
+Data Analyst with 5+ years of experience across Amazon and Flipkart in fraud analytics, risk analytics, customer analytics, and behavioral analysis within large-scale e-commerce and marketplace environments. Advanced SQL and Python experience across million-row datasets, with strong skills in data cleaning, exploratory analysis, feature engineering, dashboarding, KPI reporting, A/B testing, statistical analysis, anomaly detection, segmentation, funnel analysis, and data-driven problem solving. Experienced in translating complex datasets into actionable insights for product, risk, operations, and business stakeholders.
+
+TECHNICAL SKILLS
+• Programming & Querying: SQL, Advanced SQL, Joins, Window Functions, CTEs, Subqueries, Aggregations, Query Optimization, Python, Pandas, NumPy
+• BI & Visualization: Power BI, Tableau, DAX, Power Query, Excel, Pivot Tables, XLOOKUP, KPI Reporting, Data Visualization, Data Storytelling, Reporting Automation
+• Data Analytics: Product Analytics, Funnel Analysis, Customer Analytics, Churn Analysis, Fraud Analytics, Risk Analytics, Anomaly Detection, Root Cause Analysis, Behavioral Analysis
+• Data Engineering: ETL, ELT, Data Pipelines, Alteryx Designer, Alteryx Macros, Data Cleaning, Data Validation, Data Quality, Workflow Automation
+• Statistics & ML: Statistical Analysis, A/B Testing, Hypothesis Testing, Regression Analysis, Clustering, Time Series Analysis, Logistic Regression, Random Forest, XGBoost
+• Cloud & Tools: AWS, Redshift, Azure, Snowflake, Git, Jira, Confluence, Agile, Stakeholder Management
+
+PROFESSIONAL EXPERIENCE
+AMAZON (AWS MARKETPLACE) — DATA & RISK ANALYST Feb 2020 – Oct 2025
+Bengaluru, India
+• Analyzed 500K+ marketplace accounts monthly using advanced SQL and Python to identify behavioral anomalies and emerging fraud patterns.
+• Built Power BI, Tableau, and QuickSight dashboards for account health, chargebacks, suspension rates, fraud trends, and operational KPIs; improved dashboard performance through SQL restructuring and incremental refreshes.
+• Designed a 50+ rule fraud detection engine and tuned thresholds with operations teams to balance detection effectiveness and false positives.
+• Conducted A/B testing and hypothesis testing to evaluate rule changes, measuring detection outcomes alongside customer friction and operational impact.
+• Automated recurring SQL and Excel reporting workflows, reducing manual preparation and reporting errors and enabling more time for investigation and root cause analysis.
+• Performed funnel and product analytics for marketplace onboarding and developed Python data-quality checks for schema changes, missing fields, and upstream issues.
+
+FLIPKART — QUALITY & RISK ANALYST Aug 2018 – Jan 2020
+Bengaluru, India
+• Analyzed 1,000+ customer service interactions monthly using SQL and Excel to identify quality risks, compliance gaps, and process issues, contributing to a 22% reduction in complaint escalations.
+• Developed a statistical risk-scoring framework to prioritize agent behaviors for audit, improving audit scores by 18% versus random case selection.
+• Built Excel KPI dashboards using Pivot Tables and XLOOKUP to track 15+ metrics including AHT, DSAT, and CSAT with threshold-based alerts.
+• Performed root cause, Pareto, and trend analysis and partnered with training teams to implement targeted process improvements.
+
+KEY PROJECTS
+Account Takeover Detection Model
+• Engineered 25+ predictive features from 1M+ login events using SQL and Python, including login velocity, geo-location anomalies, and device fingerprint changes.
+• Tuned model thresholds using precision and recall and built dashboards combining risk scores with historical account activity.
+
+Fraud Rule Threshold Optimization
+• Evaluated 20+ rule-threshold combinations across 50K+ historical fraud cases using SQL, Python, Pandas, and NumPy to balance detection and review workload.
+• Segmented results by fraud type and documented a reproducible rule-tuning framework in Confluence.
+
+Alteryx Workflow Automation for Risk Reporting
+• Built Alteryx workflows and macros to consolidate Redshift risk data into a weekly report, replacing five manual data pulls.
+• Connected Alteryx output to Power BI using DAX and Power Query for dynamic analysis by risk category, region, and period.
+
+CERTIFICATIONS & EDUCATION
+• Google Data Analytics Professional Certificate — 2024
+• Alteryx Core Designer Certification — 2025
+• Post Graduate Degree, AI-ML & Agentic AI Engineering — Indian Institute of Technology, Gandhinagar (IITGN)
+• B.Tech, Mechanical Engineering — Neotia Institute of Technology, Management and Science (ITME)
